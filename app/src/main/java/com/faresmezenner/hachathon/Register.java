@@ -31,6 +31,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 org = false;
                 register_intent.putExtra("org", 0);
+                register_intent.putExtra("guest", 0);
                 startActivity(register_intent);
                 finish();
             }
@@ -40,6 +41,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View view) {
                 org = true;
                 register_intent.putExtra("org", 1);
+                register_intent.putExtra("guest", 0);
                 startActivity(register_intent);
                 finish();
             }

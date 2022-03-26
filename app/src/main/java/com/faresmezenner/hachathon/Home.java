@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
@@ -57,6 +58,7 @@ public class Home extends AppCompatActivity {
                 }
             });
         }
+        LinearLayout org_add = findViewById(R.id.org_add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,8 +66,31 @@ public class Home extends AppCompatActivity {
 
                     replaceFragment(fragments[1]);
                 } else {
-
+                    if(org_add.getVisibility() == View.GONE){
+                        org_add.setVisibility(View.VISIBLE);
+                    } else {
+                        org_add.setVisibility(View.GONE);
+                    }
                 }
+            }
+        });
+
+        TextView add_post = findViewById(R.id.add_post);
+        add_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                replaceFragment(fragments[1]);
+                org_add.setVisibility(View.GONE);
+            }
+        });
+
+        TextView add_compaign = findViewById(R.id.add_comp);
+        add_compaign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                org_add.setVisibility(View.GONE);
             }
         });
 
