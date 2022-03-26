@@ -2,10 +2,13 @@ package com.faresmezenner.hachathon;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -21,6 +24,11 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        int guest = getIntent().getIntExtra("guest", 1), org = getIntent().getIntExtra("org", 0);
+        if(guest == 1){
+            CardView add_view = findViewById(R.id.add);
+            add_view.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.grey));
+        }
         Button add = findViewById(R.id.add_btn);
         ImageView[] navig = new ImageView[]{findViewById(R.id.main),findViewById(R.id.notif)};
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -28,19 +36,36 @@ public class Home extends AppCompatActivity {
         Fragment[] fragments = new Fragment[]{new Main(), new Add(), new Notif()};
         fragmentTransaction.replace(R.id.fragment, fragments[0]);
         fragmentTransaction.commit();
+
+        if(guest == 1){
+            CardView add_view = findViewById(R.id.add);
+            add_view.setVisibility(View.INVISIBLE);
+            String notif_guest_path = "@drawable/notif_guest";
+            int notif_guest_id = getResources().getIdentifier(notif_guest_path, null, getClass().getPackage().getName());
+            Drawable notif_guest = getResources().getDrawable(notif_guest_id, null);
+            navig[1].setImageDrawable(notif_guest);
+        }
         for(int i = 0; i<2;i++){
             int finalI = i;
             navig[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    replaceFragment(fragments[finalI]);
+                    if(guest != 1){
+
+                        replaceFragment(fragments[finalI]);
+                    }
                 }
             });
         }
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                replaceFragment(fragments[1]);
+                if(org == 0){
+
+                    replaceFragment(fragments[1]);
+                } else {
+
+                }
             }
         });
 

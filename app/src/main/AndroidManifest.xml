@@ -23,7 +23,7 @@
             android:name=".Intro"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LogIn"
             android:exported="true" />
         <activity
             android:name=".Password"

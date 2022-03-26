@@ -14,13 +14,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LogIn extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_reg_in);
         Button login = findViewById(R.id.login_btn);
+        Button login_guest = findViewById(R.id.login_as_guest);
         TextView register_text = findViewById(R.id.register_text);
         String text = "You dont have an account? Register!";
 
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         ClickableSpan register = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                //Intent register = new Intent(MainActivity.this, Register.class);
-                //startActivity(register);
-                //finish();
+                Intent register = new Intent(LogIn.this, Register.class);
+                startActivity(register);
+                finish();
             }
 
 
@@ -42,12 +43,23 @@ public class MainActivity extends AppCompatActivity {
         register_text.setText(ss);
         register_text.setMovementMethod(LinkMovementMethod.getInstance());
 
+
+        Intent login_intent = new Intent(getApplicationContext(), Home.class);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent login = new Intent(getApplicationContext(), Home.class);
-                startActivity(login);
+                login_intent.putExtra("guest", 0);
+                startActivity(login_intent);
                 finish();
+            }
+        });
+        login_guest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                login_intent.putExtra("guest", 1);
+                startActivity(login_intent);
             }
         });
     }

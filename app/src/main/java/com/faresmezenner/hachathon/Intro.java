@@ -17,7 +17,7 @@ public class Intro extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent next = new Intent(Intro.this, MainActivity.class);
+                Intent next = new Intent(Intro.this, LogIn.class);
                 startActivity(next);
                 finish();
             }

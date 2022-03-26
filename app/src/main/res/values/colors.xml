@@ -10,4 +10,5 @@
     <color name="red_flag">#FF0000</color>
     <color name="base">#FFA500</color>
     <color name="good">#00FF00</color>
+    <color name="grey">#AAAAAA</color>
 </resources>
