@@ -81,10 +81,10 @@ public class Main extends Fragment {
         String rank[] =new String[]{"5000", "3000", "200", "1000", "1500"};
         String rate[] = new String[]{"70% completed","30% completed","10% completed", "00% completed"   };
         String title[] = new String[]{"Trash near mosque", "Broken stop sign", "Leaking tube", "Broken road"};
-        String description[] = new String[]{"There's a trash dumpster that has been flipped over near the mosque, now there's trash all over the ground, anyone can help?",
-                                            "The stop sign at the exit is broken and this can lead to accidents, please reach it out to authorities ASAP",
-                                            "A water tube is leaking and ruining the garden, if any one can fix it, please do it",
-                                            "The road at the entry is broken and can lead to accidents, can you fix it or help us notify the authorities? thank you"};
+        String description[] = new String[]{"There's a trash dumpster that has been flipped over near the mosque...",
+                                            "The stop sign at the exit is broken and this can lead to accidents,...",
+                                            "A water tube is leaking and ruining the garden, if any one can fix...",
+                                            "The road at the entry is broken and can lead to accidents, can you..."};
 
         String[] userPfpPath = new String[]{"@drawable/user0", "@drawable/user1", "@drawable/user2", "@drawable/user3"};
         String[] postPicPath = new String[]{"@drawable/trash", "@drawable/damaged_stop_sign", "@drawable/water_leak", "@drawable/broken_road"};
